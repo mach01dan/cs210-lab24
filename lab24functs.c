@@ -29,17 +29,19 @@ void getDataText(CadetInfoStructType cinfo[], int numRecs, char fname[]) {
     
     char firstName[50];
     char lastName[50];
-    int age = 0;
-    int squad = 0;
-    int year = 0; 
+    //int age = 0;
+    //int squad = 0;
+    //int year = 0; 
     int numRead = 1; 
 
     while (numRead < 121 && !feof(inFile)) {
-        fscanf(inFile, "%s %s %d %d %d", cinfo[numRead].firstname, cinfo[numRead].lastname, &cinfo[numRead].age, &cinfo[numRead].squad, &cinfo[numRead].squad);
+        fscanf(inFile, "%s %s %d %d %d", firstName, lastName, &cinfo[numRead].age, &cinfo[numRead].squad, &cinfo[numRead].year);
         //strcat(firstName, " ");
-        //strcpy(cadetRecords[numRead].name, strcat(firstName, lastName));
+        strcpy(cinfo[numRead].name, strcat(firstName, lastName));
         numRead++;
 
+    /*    
+        
         if (numRead == 1) {
     printf("Cadet name = %s %s\n", firstName, lastName);
     printf("Cadet age = %d\n", age);
@@ -53,6 +55,8 @@ void getDataText(CadetInfoStructType cinfo[], int numRecs, char fname[]) {
     printf("Cadet year = %d\n", year);
         }
     }
-    
+
+    */
+    }
     fclose(inFile);
 }
